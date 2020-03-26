@@ -4,6 +4,7 @@
   "description": "Project done by Yngesh Raman and Divya Jyoti Sen",
   "main": "index.js",
   "scripts": {
+    "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,6 +19,14 @@
   },
   "homepage": "https://github.com/attainu/Youtube-clone#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.6",
+    "nodemailer": "^6.4.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
   }
 }

@@ -1,0 +1,35 @@
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+    "name": "idmsoamds",
+    "password": "dsfsf"
+}
+
+###
+
+POST http://localhost:8080/register
+Content-Type: application/json
+
+{
+    "name": "www",
+    "email": "w@w",
+    "password": "w"
+}
+
+###
+
+POST http://localhost:8080/login
+Content-Type: application/json
+
+{
+    "email": "w@w",
+    "password": "w"
+}
+
+###
+
+GET http://localhost:8080/users
+
+###
+DELETE http://localhost:8080/logout/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlN2JmN2FlMDVkOTg3M2I5OGNmYmE1NyIsImlhdCI6MTU4NTE4MjYzOCwiZXhwIjoxNTg1MTg2MjM4fQ.jpY90ZKUlXAKkTVUDNNTpsR8BaSJmimOj6UzS6yjL-g
