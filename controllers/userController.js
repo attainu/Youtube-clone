@@ -1,5 +1,5 @@
 const User = require('../models/Users')
-//const transport = require('../email')
+const transport = require('../email')
 
 
 module.exports = {
@@ -22,20 +22,20 @@ module.exports = {
             const newUser = await User.create(user)
             const token = await newUser.createToken()
 
-            // const mail = await transport.sendMail({
-            //     from: process.env.SENDER_EMAIL,
-            //     to: user.email,
-            //     subject: 'Wenzio account confirmation',
-            //     text: `Hello ${user.name}, your account has been created and confirmed successfully. click <a href="#">here</a> to using our service. The link not working yet, work in progress
+            const mail = await transport.sendMail({
+                from: process.env.SENDER_EMAIL,
+                to: user.email,
+                subject: 'Wenzio account confirmation',
+                text: `Hello ${user.name}, your account has been created and confirmed successfully. click <a href="#">here</a> to using our service. The link not working yet, work in progress
                 
-            //     -Regards Wenzio Team`
-            // })
+                -Regards Wenzio Team`
+            })
 
             res.status(201).json({
                 statusCode: 201,
                 newUser,
                 accessToken: token,
-               // mail,
+                mail,
                 expiresIn: '1h'
             })
         } catch(err) {
