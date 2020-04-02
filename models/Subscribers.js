@@ -16,9 +16,6 @@ subscriberSchema = new Schema(
     { timestamps: true }
 )
 
-
-
+const Subscriber = mongoose.model("subscriber", subscriberSchema);
   
-  const Subscriber = mongoose.model("subscriber", subscriberSchema);
-  
-  module.exports = Subscriber;
+module.exports = Subscriber;

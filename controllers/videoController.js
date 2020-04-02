@@ -11,7 +11,7 @@ const storage = multer.diskStorage({
     fileFilter: function(req, file, cb){
         const extension = path.extname(file.originalname)
         console.log(extension)
-        if(extension !== '.mp4' || extension !== '.mp3'){
+        if(extension !== '.mp4'){
             return cb(res.status(400).end('Invalid file format, Only mp4, mp3 allowed'), false)
         }
 
@@ -43,7 +43,7 @@ module.exports = {
         }
     },
 
-    //Getting all the videos in the database
+    //Getting all the videos from the database
     async allVideos(req, res) {
         try {       
             const videos = await Video.find().populate('owner')         

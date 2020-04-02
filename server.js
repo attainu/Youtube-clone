@@ -2,7 +2,9 @@ const express = require('express')
 const userRoutes = require('./routes/userRoutes')
 const videoRoutes = require('./routes/videoRoutes')
 const subscribeRoutes = require('./routes/subscribeRoutes')
-//const apiRoutes = require('./routes/apiRoutes')
+const commentRoutes = require('./routes/commentRoutes')
+const likeRoutes = require('./routes/likeRoutes')
+
 //const jwt = require('jsonwebtoken')
 require('dotenv').config()
 require('./db')
@@ -14,6 +16,8 @@ app.use(express.json())
 app.use(userRoutes)
 app.use(videoRoutes)
 app.use(subscribeRoutes)
+app.use(commentRoutes)
+app.use(likeRoutes)
 
 
 app.listen(8080, ()=>{

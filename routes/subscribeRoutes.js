@@ -9,7 +9,7 @@ router.post('/subscribe/allSubscribedVideos', allSubscribedVideos )     //This r
                                                             // { "fromUser": "dfscvsdfsdff"}
 
 router.post('/subscribe/allSubscribers', allSubscribers )   //This request returns all the subscribers the user have.
-                                                            //Expects json object as input, of current User id.
+                                                            //Expects json object as input, of video owner's id.
                                                             // { "toUser": "dfscvsdfsdff"}
 
 router.post('/subscribe/subsCount', subsCount )             //This request returns number of subs the video owner have
