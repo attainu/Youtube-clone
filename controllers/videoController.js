@@ -12,7 +12,7 @@ const storage = multer.diskStorage({
         const extension = path.extname(file.originalname)
         console.log(extension)
         if(extension !== '.mp4'){
-            return cb(res.status(400).end('Invalid file format, Only mp4, mp3 allowed'), false)
+            return cb(res.status(400).end('Invalid file format, Only mp4 allowed'), false)
         }
 
         cb(null, true)
@@ -27,11 +27,16 @@ module.exports = {
     async watchVideo(req, res) {
         try { 
             const videoId = req.params.videoId      
-            const video = await Video.findById({"_id": videoId }).populate('owner')         
+            const video2 = await Video.findById({"_id": videoId }) 
+            video2.views++
+            console.log("video-================= ",video2)       
+            const video = await Video.findById({"_id": videoId }).populate('owner')
+                    
             const sideVideos = await Video.find()
             for(let i = 0; i < sideVideos.length; i++){
                 if(sideVideos[i]._id === videoId) sideVideos.splice(i,1)
             }
+            await video2.save() 
             res.status(200).json({
                 success: true,
                 statusCode:200,
@@ -71,6 +76,7 @@ module.exports = {
     //Uploading video and saving to mongoose
     uploadVideo(req, res){
         const video = new Video(req.body)
+        video.views = 0
         video.save((err, video)=>{
             if(err) return res.status(400).json({ success: false, err })
             return res.status(200).json({ success: true, video })

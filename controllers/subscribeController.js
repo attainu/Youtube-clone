@@ -64,10 +64,11 @@ module.exports = {
         try {
             const all = await Subscribe.find({ fromUser: req.body.fromUser })
             let allSubscribedUsers = []
+            //console.log("all==== ", all)
             all.map((subscriber, i)=>{
-                allSubscribedUsers.push(subscriber.userTo)
+                allSubscribedUsers.push(subscriber.toUser)
             })
-
+            console.log("allSubscribedUsers==== ", allSubscribedUsers)
             const allSubscribedVideos = await Video.find({ owner: { $in: allSubscribedUsers }}).populate('owner')
 
             return res.status(200).json({ success: true, allSubscribedVideos })

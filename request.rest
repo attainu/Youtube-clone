@@ -1,35 +1,74 @@
-POST http://localhost:8080/login
+###
+POST http://localhost:8000/user/register
 Content-Type: application/json
 
 {
-    "name": "idmsoamds",
-    "password": "dsfsf"
+    "name": "user1",
+    "email": "user1@email.com",
+    "password": "user1"
 }
 
 ###
-
-POST http://localhost:8080/register
+POST http://localhost:8000/user/login
 Content-Type: application/json
 
 {
-    "name": "www",
-    "email": "w@w",
-    "password": "w"
+    "email": "user1@email.com",
+    "password": "user1"
 }
 
 ###
+GET http://localhost:8000/user/all
 
-POST http://localhost:8080/login
+###
+DELETE http://localhost:8000/user/logout/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOGQzN2IwMDE4Mjg4MTdmY2M4M2E0YSIsImlhdCI6MTU4NjQzMDI3MywiZXhwIjoxNTg2NTE2NjczfQ.p6LTTUSKYR_ULjbQS04u8A0MnJjc8h239F3HuBFKKyg
+
+###
+POST http://localhost:8000/video/uploadVideo/:token
 Content-Type: application/json
 
 {
-    "email": "w@w",
-    "password": "w"
+	"owner": "5e8d37b001828817fcc83a4a",
+	"filePath": "uploads\\Otter.mp4_1586431870702",
+    "title": "cute otter",
+    "description": "cute otter description"
 }
 
 ###
-
-GET http://localhost:8080/users
+POST http://localhost:8000/subscribe/allSubscribedVideos/:token
+Content-Type: application/json
+{ 
+	"fromUser": "5e8f0a57ea79490734b740db"	
+}
 
 ###
-DELETE http://localhost:8080/logout/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlN2JmN2FlMDVkOTg3M2I5OGNmYmE1NyIsImlhdCI6MTU4NTE4MjYzOCwiZXhwIjoxNTg1MTg2MjM4fQ.jpY90ZKUlXAKkTVUDNNTpsR8BaSJmimOj6UzS6yjL-g
+POST http://localhost:8000/comment/getComments
+Content-Type: application/json
+{ 
+	"videoId": "5e8f0a57ea79490734b740db"	
+}
+
+###
+POST http://localhost:8000/comment/saveComment/:token
+Content-Type: application/json
+{ 
+	"content": "some new comment response",
+	"writer": "5e8d390401828817fcc83a4b",
+	"videoId": "5e8f0a57ea79490734b740db",
+	"responseTo": "5e8f24abb882112790a106e4"
+}
+
+###
+POST http://localhost:8000/like/getLikes
+Content-Type: application/json
+{ 
+	"videoId": "5e8f0a57ea79490734b740db"
+}
+
+###
+POST http://localhost:8000/like/liked
+Content-Type: application/json
+{ 
+    "userId": "5e8d390401828817fcc83a4b",
+	"videoId": "5e8f0a57ea79490734b740db"
+}

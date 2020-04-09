@@ -22,6 +22,10 @@ userSchema = new Schema(
             required: true,
             trim: true
         },
+        verified: {
+            type: Boolean,
+            default: false
+        },
         accessToken: {
           type: String
         }
@@ -31,9 +35,12 @@ userSchema = new Schema(
 
 userSchema.statics.findByEmailAndPassword = async(email, password)=>{
   try{
-    const user = await User.find({ email: email})
+    const user = await User.findOne({ "email": email})
+    //console.log('user----', user)
+    //console.log('user.pass = ', user.password, ' pass = ', password)
     if(!user) throw new Error('Invalid Credentials')
     const isMatched = await bcrypt.compare(password, user.password)
+    //console.log('ismatched======', isMatched)
     if(!isMatched) throw new Error('Invalid Credentials')
     return user
   } catch(err) {
@@ -56,7 +63,7 @@ userSchema.statics.removeToken = async(token)=>{
 
 userSchema.methods.createToken = async function(token){
   const user = this
-  const accessToken = await sign({id: user._id}, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '1h'})
+  const accessToken = await sign({id: user._id}, process.env.ACCESS_TOKEN_SECRET, { expiresIn: '24h'})
   user.accessToken = accessToken
   await user.save()
   return accessToken

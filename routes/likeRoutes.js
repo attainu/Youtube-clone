@@ -12,19 +12,19 @@ router.post('/like/getDislikes', getDislikes )        //This request gets the di
                                             //Expects json object as input, either id of the video or the comment.
                                             // { "videoId": "sfdfsdcdf"} or { "commentId": "sfdfsdcdf"}
 
-router.post('/like/liked', liked )        //saving likes for a video or comment in database.
+router.post('/like/liked/:token', authenticate, liked )        //saving likes for a video or comment in database.
                                             //Expects json object as input, either id of the video or the comment along with the userId.
                                             // { "userId": "sdsfdsfdf", "videoId": "sfdfsdcdf"} or { "userId": "sdsfdsfdf", "commentId": "sfdfsdcdf"}
 
-router.post('/like/disliked', disliked )        //saving dislikes for a video or comment in database.
+router.post('/like/disliked/:token', authenticate, disliked )        //saving dislikes for a video or comment in database.
                                             //Expects json object as input, either id of the video or the comment along with the userId.
                                             // { "userId": "sdsfdsfdf", "videoId": "sfdfsdcdf"} or { "userId": "sdsfdsfdf", "commentId": "sfdfsdcdf"}
 
-router.post('/like/unLiked', unLiked )        //deleting like for a video or comment from database.
+router.post('/like/unLiked/:token', authenticate, unLiked )        //deleting like for a video or comment from database.
                                             //Expects json object as input, either id of the video or the comment along with the userId.
                                             // { "userId": "sdsfdsfdf", "videoId": "sfdfsdcdf"} or { "userId": "sdsfdsfdf", "commentId": "sfdfsdcdf"}
 
-router.post('/like/unDisliked', unDisliked )        //deleting dislike for a video or comment from database.
+router.post('/like/unDisliked/:token', authenticate, unDisliked )        //deleting dislike for a video or comment from database.
                                             //Expects json object as input, either id of the video or the comment along with the userId.
                                             // { "userId": "sdsfdsfdf", "videoId": "sfdfsdcdf"} or { "userId": "sdsfdsfdf", "commentId": "sfdfsdcdf"}
 
