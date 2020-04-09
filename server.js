@@ -24,5 +24,5 @@ app.use(likeRoutes)
 
 
 app.listen(PORT, ()=>{
-    console.log('Get Set Gooooo!!!')
+    console.log('Get Set Gooooo!!! on port: ', PORT)
 })
