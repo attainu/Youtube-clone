@@ -38,7 +38,7 @@ Content-Type: application/json
 POST http://localhost:8000/subscribe/allSubscribedVideos/:token
 Content-Type: application/json
 { 
-	"fromUser": "5e8f0a57ea79490734b740db"	
+	"fromUser": "5e8f36dbf49f30230065a456"	
 }
 
 ###
