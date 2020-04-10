@@ -1,5 +1,5 @@
 ###
-POST http://localhost:8000/user/register
+POST https://pure-tor-19634.herokuapp.com/user/register
 Content-Type: application/json
 
 {
@@ -9,7 +9,7 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8000/user/login
+POST https://pure-tor-19634.herokuapp.com/user/login
 Content-Type: application/json
 
 {
@@ -18,13 +18,13 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8000/user/all
+GET https://pure-tor-19634.herokuapp.com/user/all
 
 ###
-DELETE http://localhost:8000/user/logout/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOGQzN2IwMDE4Mjg4MTdmY2M4M2E0YSIsImlhdCI6MTU4NjQzMDI3MywiZXhwIjoxNTg2NTE2NjczfQ.p6LTTUSKYR_ULjbQS04u8A0MnJjc8h239F3HuBFKKyg
+DELETE https://pure-tor-19634.herokuapp.com/user/logout/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOGQzN2IwMDE4Mjg4MTdmY2M4M2E0YSIsImlhdCI6MTU4NjQzMDI3MywiZXhwIjoxNTg2NTE2NjczfQ.p6LTTUSKYR_ULjbQS04u8A0MnJjc8h239F3HuBFKKyg
 
 ###
-POST http://localhost:8000/video/uploadVideo/:token
+POST https://pure-tor-19634.herokuapp.com/video/uploadVideo/:token
 Content-Type: application/json
 
 {
@@ -35,21 +35,22 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8000/subscribe/allSubscribedVideos/:token
+POST https://pure-tor-19634.herokuapp.com/subscribe/allSubscribedVideos/:token
 Content-Type: application/json
 { 
 	"fromUser": "5e8f36dbf49f30230065a456"	
 }
 
 ###
-POST http://localhost:8000/comment/getComments
+POST https://pure-tor-19634.herokuapp.com/comment/getComments
 Content-Type: application/json
+
 { 
 	"videoId": "5e8f0a57ea79490734b740db"	
 }
 
 ###
-POST http://localhost:8000/comment/saveComment/:token
+POST https://pure-tor-19634.herokuapp.com/comment/saveComment/:token
 Content-Type: application/json
 { 
 	"content": "some new comment response",
@@ -59,16 +60,32 @@ Content-Type: application/json
 }
 
 ###
-POST http://localhost:8000/like/getLikes
+POST https://pure-tor-19634.herokuapp.com/like/getLikes
 Content-Type: application/json
 { 
 	"videoId": "5e8f0a57ea79490734b740db"
 }
 
 ###
-POST http://localhost:8000/like/liked
+POST https://pure-tor-19634.herokuapp.com/like/liked
 Content-Type: application/json
 { 
     "userId": "5e8d390401828817fcc83a4b",
 	"videoId": "5e8f0a57ea79490734b740db"
 }
+
+###
+
+POST https://pure-tor-19634.herokuapp.com/video/uploadFile/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlOGYzNmRiZjQ5ZjMwMjMwMDY1YTQ1NiIsImlhdCI6MTU4NjQ5NzE0NiwiZXhwIjoxNTg2NTgzNTQ2fQ.jWa9avDZzG9enXnzlr_QCI0m8Kn4DzHE9SN17923t4o
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="text"
+
+title
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="file"; filename="Otter.mp4"
+Content-Type: video/mp4
+
+< C:\Users\Mucy\Desktop\Otter.mp4
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
