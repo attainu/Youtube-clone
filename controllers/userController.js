@@ -1,5 +1,5 @@
 const User = require('../models/Users')
-const transport = require('../email')
+//const transport = require('../email')
 
 
 module.exports = {
