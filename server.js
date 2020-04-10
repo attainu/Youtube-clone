@@ -16,11 +16,11 @@ app.get("/",(req,res)=>res.send({message:"Welcome to youtube clone API"}))
 app.use('/uploads', express.static('uploads'));
 
 app.use(express.json())
-//app.use(userRoutes)
-//app.use(videoRoutes)
-//app.use(subscribeRoutes)
-//app.use(commentRoutes)
-//app.use(likeRoutes)
+app.use(userRoutes)
+app.use(videoRoutes)
+app.use(subscribeRoutes)
+app.use(commentRoutes)
+app.use(likeRoutes)
 
 
 app.listen(PORT, ()=>{
