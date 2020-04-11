@@ -5,7 +5,7 @@ const router = Router()
 
 
 //route for confirming the password that has been sent to user while registering
-router.get('/emailConfirmation/:token',controller.emailConfirmation);
+//router.get('/emailConfirmation/:token',controller.emailConfirmation);
 
 //User can change password only when logged in
 router.post('/user/changePassword',middleware.authentication, controller.changePassword)

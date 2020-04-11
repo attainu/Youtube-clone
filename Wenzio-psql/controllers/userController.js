@@ -1,24 +1,18 @@
 const User = require('../models/Users');
 const {hash, compare} = require('bcryptjs');
 const {sign, verify} = require('jsonwebtoken');
-const nodemailer = require('nodemailer');
+// const nodemailer = require('nodemailer');
 // const sequelize = require('sequelize');
 const { Op } = require('sequelize');
-
 require('dotenv').config();
-
-
-const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.G_MAIL,
-      pass: process.env.G_PASS
-    },
-  });
-
-
+// const transporter = nodemailer.createTransport({
+//     service: 'gmail',
+//     auth: {
+//       user: process.env.G_MAIL,
+//       pass: process.env.G_PASS
+//     },
+//   });
 controller = {};
-
 //Controller function for registration
 controller.register = async(req, res)=>{
     if((req.body.user_email===undefined || req.body.user_name===undefined || req.body.user_password===undefined)){
@@ -57,27 +51,38 @@ controller.register = async(req, res)=>{
                             expiresIn: '1d',
                             },
                             (err, emailToken) => {
-                                if(err)return res.status(500).send('Server error')
-                                const url = `http://localhost:8081/emailConfirmation/${emailToken}`;
-                                const mailOptions = {
-                                    from: process.env.G_MAIL,
-                                    to: data1.user_email,
-                                    subject: 'Email verification',
-                                    html: `Please click this link to confirm your email: <a href="${url}">${url}</a>`,
-                                };
-                          
-                                transporter.sendMail(mailOptions, function(error, info){
-                                    if (error) {
-                                    console.log(error);
-                                    } else {
-                                    console.log('Email sent: ' + info.response);
-                                    }
-                                })
-                                return res.json({message:'A link has been sent to your email address for verification'})
+                                if(err)return res.status(500).json({message:err})
+                                // const url = `http://localhost:8081/emailConfirmation/${emailToken}`;
+                                // const mailOptions = {
+                                //     from:process.env.G_MAIL,
+                                //     to: data1.user_email,
+                                //     subject: 'Email verification',
+                                //     html: `Please click this link to confirm your email: <a href="${url}">${url}</a>`,
+                                // };
+                                // transporter.sendMail(mailOptions)
+                                // .then(data=>res.json({message:data}))
+                                // .catch(e=>res.json({message:e}))
+                                // //     if (error) {
+                                // //         return res.json({message:error});
+                                // //     } else {
+                                // //         return res.json({message:`Email sent + ${info.response}`});
+                                // //     }
+                                // // })
+                                // // return res.json({message:'A link has been sent to your email address for verification'})
+                                User.update({ accessToken:emailToken, isLoggedIn:true}, { where: { user_email:req.body.user_email } })
+                                    .then(dat=>{
+                                        console.log(dat)
+                                        //sending token via res.json
+                                        return res.json({message:`Welcome ${data.user_name} to dashboard`, token:emailToken})
+                                    })
+                                    .catch(e=>console.log(e.message))
                                 },
                             )
                     })
-                    .catch(e=>console.log(e.message))
+                    .catch((e)=>{
+                        console.log(e.message)
+                        return res.json({message: e})
+                    })
                 })
             }
             else{
@@ -87,22 +92,19 @@ controller.register = async(req, res)=>{
         // .catch(e=>console.log(e.message))
     }
 }
-
 //controller function to confirm email verification
-controller.emailConfirmation= async(req, res)=>{
-    console.log(req.params.token)
-  try {
-    const decode = verify(req.params.token, process.env.EMAIL_SECRET);
-    console.log(decode)
-    await User.update({ isEmailVerified: true}, { where: { id:decode.id } });
-  } 
-  catch (e) {
-    return res.status(500).json({message:e.message});
-  }
-  return res.status(200).json({message:"email verified, you can log in now"})
-
-}
-
+// controller.emailConfirmation= async(req, res)=>{
+//     console.log(req.params.token)
+//   try {
+//     const decode = verify(req.params.token, process.env.EMAIL_SECRET);
+//     console.log(decode)
+//     await User.update({ isEmailVerified: true}, { where: { id:decode.id } });
+//   } 
+//   catch (e) {
+//     return res.status(500).json({message:e.message});
+//   }
+//   return res.status(200).json({message:"email verified, you can log in now"})
+// }
 //Controller function for login
 controller.login = async(req, res)=>{
     if((req.body.user_email===undefined || req.body.user_password===undefined)){
@@ -115,7 +117,7 @@ controller.login = async(req, res)=>{
             }
         })
         if(data){
-            if(data.isEmailVerified==true){
+            // if(data.isEmailVerified==true){
                 if(data.isLoggedIn == false){
                     compare(req.body.user_password, data.user_password).then((isMatched)=>{
                         if(isMatched){
@@ -149,19 +151,17 @@ controller.login = async(req, res)=>{
                 else{
                     res.json({message:"You're already logged in"})
                 }
-            }
-            else{
-                res.json({message:'Email verification is required to login'})
-            }
+            // }
+            // else{
+            //     res.json({message:'Email verification is required to login'})
+            // }
         }
         else{
             res.status(404).json({message:'Invalid credentials'})
         }
     }
 }
-
 //Controller function for logout
-
 controller.logout = async(req, res)=>{
     const user = req.user
     try {
@@ -171,9 +171,7 @@ controller.logout = async(req, res)=>{
       catch (e) {
         return res.status(500).json({message:e.message})
       }
-    
 }
-
 //Change password
 controller.changePassword = async(req, res)=>{
     try {
@@ -191,7 +189,6 @@ controller.changePassword = async(req, res)=>{
                         if(isMatched){
                             hash(req.body.user_newPassword, 10).then(async(hashedPassword1)=>{
                                 await User.update({user_password: hashedPassword1, isLoggedIn: false, accessToken:null}, { where: { user_email:req.body.user_email } });
-                            
                                 return res.status(200).json({message:'Password changed successfully'})
                             }) 
                         }
@@ -208,8 +205,5 @@ controller.changePassword = async(req, res)=>{
     catch (e) {
         return res.status(500).json({message:e.message})
       }
-        
 }
-
-
-module.exports= controller ;                                  
+module.exports= controller ;

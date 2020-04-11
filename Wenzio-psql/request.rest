@@ -1,35 +1,54 @@
-# POST http://localhost:8080/login
-# Content-Type: application/json
+POST https://wenziopostgres.herokuapp.com/user/register
+Content-Type: application/json
 
-# {
-#     "name": "idmsoamds",
-#     "password": "dsfsf"
-# }
+ {
+     "user_email": "sendivyajyoti@gmail.com",
+     "user_name" :"Divya",
+     "user_password": "123456"
+ }
 
-# ###
+###
 
-# POST http://localhost:8080/user/register
-# Content-Type: application/json
+POST https://wenziopostgres.herokuapp.com/User/login
+Content-Type: application/json
 
-# {
-#     "name": "aman",
-#     "email": "aman@gmail",
-#     "password": "789"
-# }
+ {
+     "name": "idmsoamds",
+     "password": "dsfsf"
+ }
 
-# ###
+###
 
-# POST http://localhost:8080/login
-# Content-Type: application/json
+POST https://wenziopostgres.herokuapp.com/user/register
+Content-Type: application/json
 
-# {
-#     "email": "w@w",
-#     "password": "w"
-# }
+ {
+     "name": "ama2n",
+     "email": "aman2@gmail",
+     "password": "789"
+ }
 
-# ###
+###
 
-# GET http://localhost:8080/users
+POST https://wenziopostgres.herokuapp.com/user/login
+Content-Type: application/json
 
-# ###
-# DELETE http://localhost:8080/logout/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjVlN2JmN2FlMDVkOTg3M2I5OGNmYmE1NyIsImlhdCI6MTU4NTE4MjYzOCwiZXhwIjoxNTg1MTg2MjM4fQ.jpY90ZKUlXAKkTVUDNNTpsR8BaSJmimOj6UzS6yjL-g
+ {
+     "user_email": "shubruth8@gmail.com",
+    "user_password": "Testing"
+}
+
+###
+GET https://wenziopostgres.herokuapp.com/video/allVideos
+
+
+###
+
+GET https://wenziopostgres.herokuapp.com/users
+
+ ###
+ 
+DELETE https://wenziopostgres.herokuapp.com/user/logout
+
+ Content-Type: application/json
+

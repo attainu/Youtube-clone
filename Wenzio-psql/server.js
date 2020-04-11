@@ -7,7 +7,7 @@ const likeRoutes = require('./routes/likeRoutes');
 require('dotenv').config();
 const db = require('./db');
 // require('./elephantSQL');
-
+const PORT = process.env.PORT || 8081
 db.authenticate()
     .then(()=> console.log('Database connected'))
     .catch(err => console.log(err.message))
@@ -23,9 +23,9 @@ app.use(commentRoutes)
 app.use(likeRoutes)
 
 
-db.sync({}).then(()=> {
+db.sync({force:true}).then(()=> {
     console.log('Database connected')
-    app.listen(8081, ()=>{
+    app.listen(PORT, ()=>{
         console.log('Get Set Gooooo!!!')
     })
 })
