@@ -2,18 +2,6 @@ POST https://wenziopostgres.herokuapp.com/user/register
 Content-Type: application/json
 
  {
-     "user_email": "sendivyajyoti@gmail.com",
-     "user_name" :"Divya",
-     "user_password": "123456"
- }
-
-###
-
-POST https://wenziopostgres.herokuapp.com/User/login
-Content-Type: application/jsonPOST https://wenziopostgres.herokuapp.com/user/register
-Content-Type: application/json
-
- {
      "user_email": "divyajyoti@gmail.com",
      "user_name" :"Divya",
      "user_password": "123456"
@@ -80,48 +68,6 @@ POST https://pure-tor-19634.herokuapp.com/like/liked
 
 
 #takes user accesstoken as param for authenticating logout
-
- ###
- 
-DELETE https://wenziopostgres.herokuapp.com/user/logout
-
- Content-Type: application/json
-
-
-
- {
-     "name": "idmsoamds",
-     "password": "dsfsf"
- }
-
-###
-
-POST https://wenziopostgres.herokuapp.com/user/register
-Content-Type: application/json
-
- {
-     "name": "ama2n",
-     "email": "aman2@gmail",
-     "password": "789"
- }
-
-###
-
-POST https://wenziopostgres.herokuapp.com/user/login
-Content-Type: application/json
-
- {
-     "user_email": "shubruth8@gmail.com",
-    "user_password": "Testing"
-}
-
-###
-GET https://wenziopostgres.herokuapp.com/video/allVideos
-
-
-###
-
-GET https://wenziopostgres.herokuapp.com/users
 
  ###
  
