@@ -74,14 +74,14 @@ POST https://wenziopostgres.herokuapp.com/video/uploadVideo
 GET https://wenziopostgres.herokuapp.com/video/allVideos
 ###
 //watch a particular video, no authentication compulsory, takes videoId as params
-GET https://pure-tor-19634.herokuapp.com/video/watchVideo/
+GET https://wenziopostgres.herokuapp.com/video/watchVideo/
 
 videoId
 
 ///fetching all the videos to whom the user subbed to
 //hence need to give the logged in user's id and his accesstoken
 ###
-POST https://pure-tor-19634.herokuapp.com/subscribe/allSubscribedVideos/(HIS ACCESSTOKEN)
+POST https://wenziopostgres.herokuapp.com/subscribe/allSubscribedVideos/(HIS ACCESSTOKEN)
 Content-Type: application/json
 ​
 { 
@@ -89,7 +89,7 @@ Content-Type: application/json
 }
 
 ###
-POST https://pure-tor-19634.herokuapp.com/subscribe/allSubscribers
+POST https://wenziopostgres.herokuapp.com/subscribe/allSubscribers
 
 Content-Type: application/json
 ​
@@ -100,7 +100,7 @@ Content-Type: application/json
 
 //same as above, only this return the subcount
 ###
-POST https://pure-tor-19634.herokuapp.com/subscribe/subsCount
+POST https://wenziopostgres.herokuapp.com/subscribe/subsCount
 Content-Type: application/json
 ​
 { 
@@ -111,7 +111,7 @@ Content-Type: application/json
 //and access token of logged in user as params
 
 ###
-POST https://pure-tor-19634.herokuapp.com/subscribe/subscribed
+POST https://wenziopostgres.herokuapp.com/subscribe/subscribed
 
 Content-Type: application/json
 ​
@@ -124,7 +124,7 @@ Content-Type: application/json
 //and access token of logged in user as params
 
 ###
-POST https://pure-tor-19634.herokuapp.com/subscribe/subscribe
+POST https://wenziopostgres.herokuapp.com/subscribe/subscribe
 
 { 
 	"toUser": "",
@@ -146,7 +146,7 @@ POST https://pure-tor-19634.herokuapp.com/subscribe/subscribe
 {
 
 ###
-POST https://pure-tor-19634.herokuapp.com/subscribe/unsubscribe
+POST https://wenziopostgres.herokuapp.com/subscribe/unsubscribe
 
 
 { 
@@ -162,7 +162,7 @@ POST https://pure-tor-19634.herokuapp.com/subscribe/unsubscribe
 //need logged in user's accesstoken as params
 
 ###
-POST https://pure-tor-19634.herokuapp.com/comment/saveComment
+POST https://wenziopostgres.herokuapp.com/comment/saveComment
 Content-Type: application/json
 ​
 { 
@@ -173,7 +173,7 @@ Content-Type: application/json
 }
 
 ###
-GET https://pure-tor-19634.herokuapp.com/comment/getComments
+GET https://wenziopostgres.herokuapp.com/comment/getComments
 
 Content-Type: application/json
 ​
@@ -185,7 +185,7 @@ Content-Type: application/json
 //pass "videoId" or "commentId" as accordingly
 //likes
 ###
-POST https://pure-tor-19634.herokuapp.com/like/getLikes
+POST https://wenziopostgres.herokuapp.com/like/getLikes
 
 Content-Type: application/json
 ​
@@ -200,7 +200,7 @@ Content-Type: application/json
 
 
 ###
-POST https://pure-tor-19634.herokuapp.com/like/liked
+POST https://wenziopostgres.herokuapp.com/like/liked
 Content-Type: application/json
 ​
 { 
