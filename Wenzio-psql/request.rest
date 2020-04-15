@@ -29,42 +29,42 @@ POST https://wenziopostgres.herokuapp.com/video/uploadVideo
 GET https://wenziopostgres.herokuapp.com/video/allVideos
 ###
 //watch a particular video, no authentication compulsory, takes videoId as params
-GET https://pure-tor-19634.herokuapp.com/video/watchVideo/
+GET https://wenziopostgres.herokuapp.com/video/watchVideo/
 
 videoId
 
 //subscribe
 ###
-POST https://pure-tor-19634.herokuapp.com/subscribe/allSubscribedVideos
+POST https://wenziopostgres.herokuapp.com/subscribe/allSubscribedVideos
 
 ###
-POST https://pure-tor-19634.herokuapp.com/subscribe/allSubscribers
+POST https://wenziopostgres.herokuapp.com/subscribe/allSubscribers
 
 ###
-POST https://pure-tor-19634.herokuapp.com/subscribe/subsCount
+POST https://wenziopostgres.herokuapp.com/subscribe/subsCount
 
 
 ###
-POST https://pure-tor-19634.herokuapp.com/subscribe/subscribed
+POST https://wenziopostgres.herokuapp.com/subscribe/subscribed
 
 ###
-POST https://pure-tor-19634.herokuapp.com/subscribesubscribe
+POST https://wenziopostgres.herokuapp.com/subscribesubscribe
 ###
-POST https://pure-tor-19634.herokuapp.com/subscribeunsubscribe
+POST https://wenziopostgres.herokuapp.com/subscribeunsubscribe
 
 //comments
 ###
-POST https://pure-tor-19634.herokuapp.com/comment/saveComment
+POST https://wenziopostgres.herokuapp.com/comment/saveComment
 
 ###
-POST https://pure-tor-19634.herokuapp.com/comment/getComments
+POST https://wenziopostgres.herokuapp.com/comment/getComments
 
 //likes
 ###
-POST https://pure-tor-19634.herokuapp.com/like/getLikes
+POST https://wenziopostgres.herokuapp.com/like/getLikes
 
 ###
-POST https://pure-tor-19634.herokuapp.com/like/liked
+POST https://wenziopostgres.herokuapp.com/like/liked
 
 
 #takes user accesstoken as param for authenticating logout
