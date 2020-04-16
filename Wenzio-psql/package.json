@@ -1,0 +1,39 @@
+{
+  "name": "youtube-clone",
+  "version": "1.0.0",
+  "description": "Project done by Yngesh Raman and Divya Jyoti Sen",
+  "main": "index.js",
+  "scripts":{  
+    "test":"echo \"Error:no test specified\" && exit 1"
+   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attainu/Youtube-clone.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/attainu/Youtube-clone/issues"
+  },
+  "homepage": "https://github.com/attainu/Youtube-clone#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.21.0",
+    "datauri": "^2.0.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-session": "^1.17.0",
+    "express-validator": "^6.4.0",
+    "jest": "^25.3.0",
+    "jsonwebtoken": "^8.5.1",
+    "multer": "^1.4.2",
+    "nodemailer": "^6.4.6",
+    "pg": "^8.0.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^5.21.6"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}

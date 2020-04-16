@@ -1,0 +1,77 @@
+POST https://wenziopostgres.herokuapp.com/user/register
+Content-Type: application/json
+
+ {
+     "user_email": "divyajyoti@gmail.com",
+     "user_name" :"Divya",
+     "user_password": "123456"
+ }
+
+###
+
+POST https://wenziopostgres.herokuapp.com/User/login
+Content-Type: application/json
+
+ {
+     "user_email": "divyajyoti@gmail.com",
+     "user_name" :"Divya",
+     "user_password": "123456"
+ }
+
+
+###
+//Upload a  video, by using POSTMAN
+
+POST https://wenziopostgres.herokuapp.com/video/uploadVideo
+
+#browse all videos, no authentication compulsory
+###
+GET https://wenziopostgres.herokuapp.com/video/allVideos
+###
+//watch a particular video, no authentication compulsory, takes videoId as params
+GET https://wenziopostgres.herokuapp.com/video/watchVideo/
+
+videoId
+
+//subscribe
+###
+POST https://wenziopostgres.herokuapp.com/subscribe/allSubscribedVideos
+
+###
+POST https://wenziopostgres.herokuapp.com/subscribe/allSubscribers
+
+###
+POST https://wenziopostgres.herokuapp.com/subscribe/subsCount
+
+
+###
+POST https://wenziopostgres.herokuapp.com/subscribe/subscribed
+
+###
+POST https://wenziopostgres.herokuapp.com/subscribesubscribe
+###
+POST https://wenziopostgres.herokuapp.com/subscribeunsubscribe
+
+//comments
+###
+POST https://wenziopostgres.herokuapp.com/comment/saveComment
+
+###
+POST https://wenziopostgres.herokuapp.com/comment/getComments
+
+//likes
+###
+POST https://wenziopostgres.herokuapp.com/like/getLikes
+
+###
+POST https://wenziopostgres.herokuapp.com/like/liked
+
+
+#takes user accesstoken as param for authenticating logout
+
+ ###
+ 
+DELETE https://wenziopostgres.herokuapp.com/user/logout
+
+ Content-Type: application/json
+
