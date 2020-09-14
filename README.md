@@ -1,5 +1,5 @@
 # Youtube-clone
-Project done by Yngesh Raman and Divya Jyoti Sen
+Project done by Yngesh Raman
 
 # Heroku links--
 (MongoDb) -->  https://pure-tor-19634.herokuapp.com/
