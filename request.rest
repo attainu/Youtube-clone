@@ -1,22 +1,3 @@
-# Youtube-clone
-Project done by Yngesh Raman
-
-# Heroku links--
-(MongoDb) -->  https://pure-tor-19634.herokuapp.com/
-(Postgres) -->  not available yet
-
-# git repo url--
-(Mongo version) --> https://github.com/attainu/Wenzio/tree/dev
-
-
-
-# API DOCUMENTAION
-
-# Sample inputs with existing data in database.
-# Each route has brief explaination of what it does and expects as input
-# sample inputs route links are already filled with an access token of some user which will get expired after 24h, kindly register a new user or login the existing one to get a fresh token to use in the urls as params
-# inclosed in request.rest file for the execution of these reoutes.
-
 ###
 //access token expires in 24h, so make a new user, or login to get a working token
 POST https://pure-tor-19634.herokuapp.com/user/register
@@ -246,8 +227,5 @@ Content-Type: application/json
 }
 
 ###
-
-
-
 
 
